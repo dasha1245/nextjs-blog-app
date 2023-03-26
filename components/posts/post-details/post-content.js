@@ -1,10 +1,13 @@
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
-import {Prism as SyntaxHighLighter} from "react-syntax-highlighter";
-import {atomDark} from "react-syntax-highlighter/dist/cjs/styles/prism";
+import {PrismLight as SyntaxHighLighter} from "react-syntax-highlighter";
+import atomDark from "react-syntax-highlighter/dist/cjs/styles/prism/atom-dark";
+import js from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript';
 
 import PostHeader from "@/components/posts/post-details/post-header";
 import css from './post-content.module.css'
+
+SyntaxHighLighter.registerLanguage('js', js)
 function PostContent({post}) {
     const imagePath = `/images/posts/${post.slug}/${post.image}`
     const customComponents = {
